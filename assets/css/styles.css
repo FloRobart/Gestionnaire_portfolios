@@ -21,7 +21,7 @@
 }
 
 
-/* bouton mon portfolio */
+/* Bouton mon portfolio */
 #btnMonPortfolio
 {
   margin-top: 21px;
@@ -58,7 +58,7 @@
 }
 
 
-/* bouton dans la liste des portfolios */
+/* Bouton consulter dans la liste des portfolios */
 #btnConsulter
 {
   margin-top: 21px;
@@ -74,6 +74,21 @@
 }
 
 #btnConsulter:hover
+{
+  color : white;
+  background-color: black;
+}
+
+/* Bouton retour dans la liste */
+#btnRetour
+{
+  border: 3px solid black;
+  border-radius: 10px;
+
+  color : black;
+}
+
+#btnRetour:hover
 {
   color : white;
   background-color: black;
