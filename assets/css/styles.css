@@ -15,12 +15,13 @@
   --bs-btn-disabled-border-color: #0d6efd;
 }
 
-
 .fit-cover
 {
   object-fit: cover;
 }
 
+
+/* bouton mon portfolio */
 #btnMonPortfolio
 {
   margin-top: 21px;
@@ -33,6 +34,46 @@
 }
 
 #btnMonPortfolio:hover
+{
+  color : white;
+  background-color: black;
+}
+
+
+/* Bouton connexion et inscription */
+.btnCompte
+{
+  margin-top: 60px;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 10px;
+
+  color : black;
+}
+
+.btnCompte:hover
+{
+  color : white;
+  background-color: black;
+}
+
+
+/* bouton dans la liste des portfolios */
+#btnConsulter
+{
+  margin-top: 21px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  color : black;
+}
+
+#btnConsulter:hover
 {
   color : white;
   background-color: black;
