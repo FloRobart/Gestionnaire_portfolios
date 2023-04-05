@@ -13,39 +13,17 @@
 <body class="text-dark bg-dark">
     <section class="text-center text-dark border-1 d-xl-flex align-items-xl-center register-photo" style="background-color: transparent;">
         <div style="margin-left: auto;margin-right: auto;">
-            <form method="post" action="afterRegister.html" style="border-radius: 30px;">
+            <form  action="inscription.php"  method="post" style="border-radius: 30px;">
                 <h2 class="text-center"><strong>Créer un compte</strong></h2>
-                <div class="form-group mb-3" style="border-color: var(--bs-black);"><input class="border rounded-pill border-1 border-dark form-control" type="text" name="NomUtilisateur" placeholder="Nom d’utilisateur" style="margin-top: 54px;border-radius: 30px;"></div><script>
-    // Submit button made with javascript
-    function changePassword() {
-        var password = document.querySelector("#password").value;
-        var confirmPassword = document.querySelector("#confirmPassword").value;
-        
-        if(password.length >= 8) {
-            if(password === confirmPassword)
-            {
-                var btn = $('#submitButton').removeAttr("disabled");
-                document.querySelector('#passwordsError').style.display = 'none';
-                console.log("enabling")
-            }
-            else {
-                var btn = $('#submitButton').attr("disabled", "true");
-                document.querySelector('#passwordsError').style.display = 'block';
-                document.querySelector('#errorMessage').innerHTML = 'The passwords do not match';
-                console.log("disabling")
-            }
-        }
-        else {
-            var btn = $('#submitButton').attr("disabled", "true");
-            document.querySelector('#passwordsError').style.display = 'block';
-            document.querySelector('#errorMessage').innerHTML = 'The password must be at least 8 characters long';
-            console.log("disabling")
-        }
-    }
-</script>
-                <div class="form-group mb-3"><input class="border rounded border-1 border-dark form-control" type="password" id="password" name="password" placeholder="Mot de passe" onchange="changePassword()" style="margin-top: 40px;"><input class="border rounded border-1 border-dark form-control" type="password" id="confirmPassword" name="password-repeat" placeholder="Confirmer le mot de passe" onchange="changePassword()" style="margin-top: 40px;"></div>
-                <div id="passwordsError" style="display: none;margin-bottom: 16.5px;"><span id="errorMessage" class="text-danger" style="font-size: 13px;"></span></div>
-                <div class="form-group mb-3"><button class="btn btn-primary text-bg-dark d-block w-100" data-bss-hover-animate="pulse" id="submitButton" type="submit" style="color: rgb(255,255,255);background-color: #00b5a8;margin-top: 51px;">Inscription</button></div>
+                <div class="form-group mb-3" style="border-color: var(--bs-black);">
+                    <input class="border rounded-pill border-1 border-dark form-control" type="text" name="NomUtilisateur" placeholder="Nom d’utilisateur" style="margin-top: 54px;border-radius: 30px;"></div>
+                <div class="form-group mb-3">
+                    <input class="border rounded border-1 border-dark form-control" type="password" id="password" name="password" placeholder="Mot de passe"  style="margin-top: 40px;">
+                    <input class="border rounded border-1 border-dark form-control" type="password" id="confirmPassword" name="password-repeat" placeholder="Confirmer le mot de passe" style="margin-top: 40px;"></div>
+                <div id="passwordsError" style="display: none;margin-bottom: 16.5px;">
+                    <span id="errorMessage" class="text-danger" style="font-size: 13px;"></span></div>
+                <div class="form-group mb-3">
+                    <button class="btn btn-primary text-bg-dark d-block w-100" data-bss-hover-animate="pulse" id="submitButton" type="submit" style="color: rgb(255,255,255);background-color: #00b5a8;margin-top: 51px;">Inscription</button></div>
             </form><a class="already" href="./../connexion/Connexion.html">Déjà inscrit ?</a>
         </div>
     </section>
