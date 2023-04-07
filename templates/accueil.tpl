@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+{#
+    Variables :
+    username : nom de l'utilisateur connecté
+    connectPath : redirection vers la page de connection si l'utilisateur n'est pas connecté
+#}
+
 <html lang="fr">
 
 <head>
@@ -17,7 +23,7 @@
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
-                </ul><a class="btn btn-primary ms-md-2" role="button" href="connexion/Connexion.html" style="border-style: none;background: rgba(0,0,0,0);color: rgb(0,0,0);font-size: 20px;text-align: center;">Connexion<img src="assets/img/connexion.png" style="width: 60px;height: 60px;border-style: none;color: rgb(0,0,0);" width="50" height="50"></a>
+                </ul><a class="btn btn-primary ms-md-2" role="button" {{connectPath}} style="border-style: none;background: rgba(0,0,0,0);color: rgb(0,0,0);font-size: 20px;text-align: center;">{{username}}<img src="assets/img/connexion.png" style="width: 60px;height: 60px;border-style: none;color: rgb(0,0,0);" width="50" height="50"></a>
             </div>
         </div>
     </nav>
@@ -27,7 +33,7 @@
                 <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
                     <div>
                         <h2 class="text-uppercase fw-bold mb-3">CREER SON PORTFOLIO FACILEMENT</h2>
-                        <p class="mb-4">Etiam a rutrum, mauris lectus aptent convallis. Fusce vulputate aliquam, sagittis odio metus. Nulla porttitor vivamus viverra laoreet, aliquam netus.</p><a href="./modelesaconvertir/portfolios/Creation_de_portfolios.html"><button id="btnMonPortfolio">Mon portfolio</button></a>
+                        <a href="./modelesaconvertir/portfolios/Creation_de_portfolios.html"><button id="btnMonPortfolio">Mon portfolio</button></a>
                     </div>
                 </div>
             </div>
