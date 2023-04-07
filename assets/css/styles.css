@@ -80,7 +80,7 @@
 }
 
 /* Bouton retour dans la liste */
-#btnRetour
+#btnSimple
 {
   border: 3px solid black;
   border-radius: 10px;
@@ -88,7 +88,7 @@
   color : black;
 }
 
-#btnRetour:hover
+#btnSimple:hover
 {
   color : white;
   background-color: black;
