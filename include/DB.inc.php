@@ -71,6 +71,22 @@ class DB {
 		$this->execQuery("INSERT INTO Users VALUES (?,?)", array($username, $hash), "User");
 	}
 
+	public function checkAccount($username, $password) {
+		$account = $this->execQuery("SELECT * FROM Users WHERE nom = ?", array($username), "User");	
+		
+		if (empty($account)) {return false;}
+
+		return password_verify($password, $account[0]->hashmdp);
+	}
+
+	public function createToken($username, $token) {
+		$expiration = time() + 86400; //24 hours duration
+
+
+		
+		$this->execQuery("INSERT INTO Tokens VALUES (?,?,?)", array($token, $username, date("Y-m-d H:i:s" , $expiration)), "");	
+	}
+
 	
 }
 

@@ -34,7 +34,8 @@ if (!$conn->checkUsername($username)) {
 }
 
 $conn->createUser($username, $_POST["password"]);
-echo "c'est la merguez bleue ! LA MERGUEZ BLEUE !";
+
+header("Location: connexion.php");
 
 
 
