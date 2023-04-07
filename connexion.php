@@ -14,7 +14,7 @@ $tpl = $twig->loadTemplate( "connexion.tpl" );
 
 $conn = DB::getInstance();
 
-if (isset($_COOKIE["connexionToken"])) {header("Location: index.html"); return;}
+if (isset($_COOKIE["connexionToken"])) {header("Location: index.php"); return;}
 
 if (!checkPostRequest()) {pageRender($tpl, "", "display: none;"); return;}
 
@@ -28,7 +28,7 @@ $conn->createToken($_POST["nomUtilisateur"], $token);
 setcookie("connexionToken", $token, time() + 86400);
 
 //Redirect to main page*/
-header("Location: index.html");
+header("Location: index.php");
 return;
 
 function checkPostRequest() {

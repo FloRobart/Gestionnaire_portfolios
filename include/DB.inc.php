@@ -79,12 +79,24 @@ class DB {
 		return password_verify($password, $account[0]->hashmdp);
 	}
 
+	private function removeOutdatedTokens() {
+		$this->execQuery("DELETE FROM Tokens WHERE expiration_date < ?", array(date("Y-m-d H:i:s" , time())), "");	
+	}
+
 	public function createToken($username, $token) {
+		$this->removeOutdatedTokens();
+		
 		$expiration = time() + 86400; //24 hours duration
 
-
-		
 		$this->execQuery("INSERT INTO Tokens VALUES (?,?,?)", array($token, $username, date("Y-m-d H:i:s" , $expiration)), "");	
+	}
+
+	public function getUsernameFromToken($tokenid) {
+		$this->removeOutdatedTokens();
+
+		$result = $this->execQuery("SELECT * FROM Tokens WHERE tokenid = ?", array($tokenid), "User");
+		
+		return $result[0]->username;
 	}
 
 	
