@@ -7,13 +7,14 @@
     <title>Edition de portfolios</title>
     <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md py-3">
-        <div class="container"><a class="btn btn-primary" role="button" id="btnRetour" href="../../index.html">Annuler et revenir à l'accueil</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="btn" role="button" id="btnRetour" href="../../index.html">Annuler et revenir à l'accueil</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ms-auto"></ul><a class="btn btn-primary" role="button" id="btnRetour" href="#">Sauvegarder</a>
+                <ul class="navbar-nav ms-auto"></ul><a class="btn" role="button" id="btnRetour" href="#">Sauvegarder</a>
             </div>
         </div>
     </nav>
@@ -29,13 +30,15 @@
                 </div>
             </div>
         </nav>
-        <div id="Profile" class="row" style="margin-top: 100px;margin-bottom: 100px;">
-            <div id="Description" class="col" style="width: 60%;margin-left: 30px;position: relative;">
-                <div class="border rounded-pill border-2 border-dark py-5 px-5" style="margin: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 60%;"><span class="h3">Zone de dessin partagé</span>
-                    <p>Logiciel permettant de dessiner avec plusieurs personnes simultanément Logiciel réalisé avec Java et l’API Swing.</p>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="border rounded-pill border-2 border-dark p-4 mx-4">
+                        <p>Bonjour ! Je m’appelle Fabrice Bobart, je suis un développeur basé à Saumur et voici mon portfolio !</p>
+                    </div>
                 </div>
+                <div class="col-md-6"><img class="rounded border rounded-circle" style="max-width: 350px;max-height: 350px;margin-left: 50%;transform: translateX(-50%);" src="../../assets/img/moi.png"></div>
             </div>
-            <div id="image" class="col" style="width: 40%;"><img class="rounded border rounded-circle" style="width: 350px;height: 350px;" src="../../assets/img/test.png"></div>
         </div>
         <hr style="border-width: 3px;">
         <div id="Projets">
@@ -62,7 +65,7 @@
                 </div>
             </div>
             <div class="row mt-4" id="btnAjouterProjet">
-                <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn" type="button" style="width: 100%;border: solid 2px black;">Ajouter un projet</button></div>
+                <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn" id="btnRetour" type="button" style="width: 100%;"> + Ajouter un projet</button></div>
             </div>
         </div>
         <hr style="border-width: 3px;">
@@ -98,7 +101,7 @@
                 </div>
             </div>
             <div class="row mt-4" id="btnAjouterCompetence">
-                <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn" type="button" style="width: 100%;border: solid 2px black;">Ajouter une compétences</button></div>
+                <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn" id="btnRetour" type="button" style="width: 100%;"> + Ajouter une compétences</button></div>
             </div>
         </div>
         <hr style="border-width: 3px;">
