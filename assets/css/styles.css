@@ -95,7 +95,7 @@
 }
 
 /* changement du cursor au survol des éléments modifiable */
-.modifiable:hover, .imageModifiable:hover
+.modifiable:hover, .imgModifiable:hover
 {
   cursor: pointer;
 }
