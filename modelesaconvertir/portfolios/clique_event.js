@@ -113,6 +113,8 @@ function cliqueAnnuler(elementCliquer)
     var body = document.getElementsByTagName('body')[0]
     deleteChild(body);
     body.innerHTML = bodyOrig;
+    // temporaire
+    document.location.reload();
 }
 
 
