@@ -1,6 +1,10 @@
 <?php
 
 require_once("User.inc.php");
+require_once("Token.inc.php");
+require_once("Portfolio.inc.php");
+require_once("Projet.inc.php");
+require_once("Competence.inc.php");
 
 class DB {
 	private static $singleton = null; 
@@ -94,9 +98,33 @@ class DB {
 	public function getUsernameFromToken($tokenid) {
 		$this->removeOutdatedTokens();
 
-		$result = $this->execQuery("SELECT * FROM Tokens WHERE tokenid = ?", array($tokenid), "User");
+		$result = $this->execQuery("SELECT * FROM Tokens WHERE tokenid = ?", array($tokenid), "Token");
 		
 		return $result[0]->username;
+	}
+
+	public function getPortfolio($username) {
+		$result = $this->execQuery("SELECT * FROM Portfolio WHERE username = ?", array($username), "Portfolio");
+
+		if (empty($result)) return null;
+		
+		return $result[0];
+	}
+
+	public function getProjets($idFolio) {
+		$result = $this->execQuery("SELECT DISTINCT p.* FROM Projet p NATURAL JOIN ProjetsPortfolio pp WHERE pp.idFolio = ?", array($idFolio), "Projet");
+
+		if (empty($result)) return null;
+		
+		return $result;
+	}
+
+	public function getCompetences($idFolio) {
+		$result = $this->execQuery("SELECT DISTINCT c.* FROM Competence c NATURAL JOIN CompetencesPortfolio p WHERE p.idFolio = ?", array($idFolio), "Competence");
+
+		if (empty($result)) return null;
+		
+		return $result;
 	}
 
 	
