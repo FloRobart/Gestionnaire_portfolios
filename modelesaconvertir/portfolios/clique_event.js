@@ -55,28 +55,53 @@ function valider(elementValider)
 
 function cliqueAjout(elementCliquer)
 {
-    console.log(elementCliquer.target);
-    var div1 = document.createElement('div');
-    div1.setAttribute('class', 'col-xxl-4');
-    div1.setAttribute('id', 'competence');
+    if (elementCliquer.target.getAttribute('class').indexOf('btnAjouterCompetence') != -1)
+    {
+        var div1 = document.createElement('div');
+        div1.setAttribute('class', 'col-xxl-4');
+        div1.setAttribute('id', 'competence');
 
-    var div2 = document.createElement('div');
-    div2.setAttribute('class', 'card border-white');
-    div2.setAttribute('style', 'position: relative;');
-    div1.appendChild(div2);
+        var div2 = document.createElement('div');
+        div2.setAttribute('class', 'card border-white');
+        div2.setAttribute('style', 'position: relative;');
+        div1.appendChild(div2);
 
-    var div3 = document.createElement('div');
-    div3.setAttribute('class', 'border rounded-pill border-dark');
-    div3.setAttribute('style', 'width: 100%;height: 100%;');
-    div2.appendChild(div3);
+        var div3 = document.createElement('div');
+        div3.setAttribute('class', 'border rounded-pill border-dark');
+        div3.setAttribute('style', 'width: 100%;height: 100%;');
+        div2.appendChild(div3);
 
-    var p = document.createElement('p');
-    p.setAttribute('class', 'modifiable');
-    p.setAttribute('style', 'text-align: center;margin-bottom: 0px;');
-    p.innerHTML = 'Nouvelle compétence';
-    p.addEventListener('click', cliqueModif, false);
-    div3.appendChild(p);
+        var p = document.createElement('p');
+        p.setAttribute('class', 'modifiable');
+        p.setAttribute('style', 'text-align: center;margin-bottom: 0px;');
+        p.innerHTML = 'Nouvelle compétence';
+        p.addEventListener('click', cliqueModif, false);
+        div3.appendChild(p);
 
-    var lstCompetences = document.getElementById('lstCompetences');
-    lstCompetences.appendChild(div1);
+        var lstCompetences = document.getElementById('lstCompetences');
+        lstCompetences.appendChild(div1);
+    }
+    else if (elementCliquer.target.getAttribute('class').indexOf('btnAjouterProjet') != -1)
+    {
+        var div1 = document.createElement('div');
+        div1.setAttribute('class', 'col-xxl-4');
+        div1.setAttribute('id', 'projet');
+
+        var div2 = document.createElement('div');
+        div2.setAttribute('class', 'card border-white');
+        div2.setAttribute('style', 'position: relative;');
+        div1.appendChild(div2);
+
+        var div3 = document.createElement('div');
+        div3.setAttribute('style', 'margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;');
+        div2.appendChild(div3);
+
+        var img = document.createElement('img');
+        img.setAttribute('style', 'width: 100%;height: 100%;max-width: 400px;border-radius: 50px;');
+        img.setAttribute('src', '../../assets/img/vide.png');
+        div3.appendChild(img);
+
+        var lstProjets = document.getElementById('lstProjets');
+        lstProjets.appendChild(div1);
+    }
 }
