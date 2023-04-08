@@ -103,12 +103,12 @@
         </div>
         <footer class="text-center" style="margin: 45px;margin-bottom: -39px;margin-top: 79px;">
             <div class="container text-muted py-4 py-lg-5">
+                <p class="mb-0">Copyright © 2023 FolioEdit</p>
                 <ul class="list-inline">
                     <li class="list-inline-item me-4"></li>
                     <li class="list-inline-item me-4"><a class="link-secondary" href="#">Mentions légales</a></li>
                     <li class="list-inline-item"></li>
                 </ul>
-                <p class="mb-0">Copyright © 2023 FolioEdit</p>
             </div>
         </footer>
     </div>
