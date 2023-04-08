@@ -5,6 +5,7 @@ window.addEventListener('load', initEvents, false);
 function initEvents()
 {
     var elementsModifiable = document.getElementsByClassName('modifiable');
+    var imagesModifiable = document.getElementsByClassName('imgModifiable');
     var elementsAjouter = document.getElementsByClassName('btnAjouter');
     var btnAnnuler = document.getElementsByClassName('btnAnnuler')[0];
     var btnSave = document.getElementsByClassName('btnSave')[0];
@@ -12,6 +13,10 @@ function initEvents()
     /* Ajout des événements sur les éléments modifiables */
     for (var i = 0; i < elementsModifiable.length; i++)
         elementsModifiable[i].addEventListener('click', cliqueModif, false);
+
+    /* Ajout des événements sur les images modifiables */
+    for (var i = 0; i < imagesModifiable.length; i++)
+        imagesModifiable[i].addEventListener('click', cliqueImgModif, false);
 
     /* Ajout des événements sur les éléments ajoutables */
     for (var i = 0; i < elementsAjouter.length; i++)
@@ -45,6 +50,24 @@ function cliqueModif(elementCliquer)
     ancienElement.parentNode.replaceChild(input, ancienElement);
     input.focus();
     input.addEventListener('blur', valider, false);
+}
+
+
+/*===========================================*/
+/* Fonction qui permet de modifier une image */
+/*===========================================*/
+function cliqueImgModif(elementCliquer)
+{
+
+    var input = document.createElement('input');
+    input.type = 'file';
+
+    var file = null;
+    input.onchange = e => { file = e.target.files[0]; }
+
+
+    input.click();
+    console.log(file);
 }
 
 
