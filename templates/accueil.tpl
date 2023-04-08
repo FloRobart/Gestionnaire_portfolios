@@ -3,6 +3,7 @@
     Variables :
     username : nom de l'utilisateur connecté
     connectPath : redirection vers la page de connection si l'utilisateur n'est pas connecté
+    portfolios : liste des derniers portfolios créés
 #}
 
 <html lang="fr">
@@ -33,7 +34,13 @@
                 <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
                     <div>
                         <h2 class="text-uppercase fw-bold mb-3">CREER SON PORTFOLIO FACILEMENT</h2>
-                        <a href="./modelesaconvertir/portfolios/Creation_de_portfolios.html"><button id="btnMonPortfolio">Mon portfolio</button></a>
+                        {% if username == "Connexion" %}
+                            <a href="connexion.php"><button id="btnMonPortfolio">Mon portfolio</button></a>
+                        {% else %}
+                            <a href="portfolio.php?username={{username}}"><button id="btnMonPortfolio">Mon portfolio</button></a>
+                        {% endif %}
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -47,59 +54,24 @@
             </div>
         </div>
         <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-
+            {% for folio in portfolios %}
             <!-- Carte -->
             <div class="col-xxl-4">
-                <a href="portfolios/Listes_des_portfolios.html" style="text-decoration: none; color: inherit;">
-                    <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"> <!-- Banniere -->
+                <a href="portfolio.php?username={{folio.username}}" style="text-decoration: none; color: inherit;">
+                    <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="userdata/{{folio.username}}/{{folio.img}}"> <!-- Banniere -->
                         <div class="card-body p-4">
-                            <h4 class="card-title">Portfolio 1</h4>
+                            <h4 class="card-title">Portfolio de&nbsp {{folio.username}}</h4>
                             <div class="d-flex">
                                 <div>
-                                    <p class="fw-bold mb-0">Dorian Bizet</p>
-                                    <p class="text-muted mb-0">Je sais pas quoi mettre</p>
+                                    <p class="fw-bold mb-0">{{folio.nom}}</p>
+                                    <p class="text-muted mb-0">{{folio.descr}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
-
-            <!-- Carte -->
-            <div class="col-xxl-4">
-                <a href="portfolios/Listes_des_portfolios.html" style="text-decoration: none; color: inherit;">
-                    <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
-                        <div class="card-body p-4">
-                            <h4 class="card-title">Portfolio 2</h4>
-                            <div class="d-flex">
-                                <div>
-                                    <p class="fw-bold mb-0">Mercelin</p>
-                                    <p class="text-muted mb-0">Je sais toujours pas quoi mettre</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Carte -->
-            <div class="col-xxl-4">
-                <a href="portfolios/Listes_des_portfolios.html" style="text-decoration: none; color: inherit;">
-                    <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
-                        <div class="card-body p-4">
-                            <h4 class="card-title">Portfolio 3</h4>
-                            <div class="d-flex">
-                                <div>
-                                    <p class="fw-bold mb-0">Messire Pois--bons</p>
-                                    <p class="text-muted mb-0">Le roi</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-
+            {% endfor %}
         </div>
         <footer class="text-center" style="margin: 45px;margin-bottom: -39px;margin-top: 79px;">
             <div class="container text-muted py-4 py-lg-5">

@@ -111,6 +111,14 @@ class DB {
 		return $result[0];
 	}
 
+	public function getLatestPortfolios() {
+		$result = $this->execQuery("SELECT * FROM Portfolio ORDER BY id DESC LIMIT 6", array(), "Portfolio");
+
+		if (empty($result)) return null;
+		
+		return $result;
+	}
+
 	public function getProjets($idFolio) {
 		$result = $this->execQuery("SELECT DISTINCT p.* FROM Projet p NATURAL JOIN ProjetsPortfolio pp WHERE pp.idFolio = ?", array($idFolio), "Projet");
 

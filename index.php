@@ -13,7 +13,7 @@ $twig = new Twig_Environment( new Twig_Loader_Filesystem("./templates"));
 $tpl = $twig->loadTemplate( "accueil.tpl" );
 
 $username = "Connexion";
-$connectpath = "href='connexion.php'";
+$connectpath = "href=connexion.php";
 
 if (!isset($_COOKIE["connexionToken"])) {
     pageRender($tpl, $username, $connectpath);
@@ -24,12 +24,19 @@ $conn = DB::getInstance();
 
 $username = $conn->getUsernameFromToken($_COOKIE["connexionToken"]);
 $connectpath = "";
+$portfolios = $conn->getLatestPortfolios();
 
-pageRender($tpl, $username, $connectpath);
+for ($cpt = 0; $cpt < sizeof($portfolios); $cpt++) {
+    $portfolios[$cpt]->descr = substr($portfolios[$cpt]->descr, 0, 40) . "...";
+}
+
+
+
+pageRender($tpl, $username, $connectpath, $portfolios);
 return;
 
 
-function pageRender($tpl, $username, $connectpath) {
-    echo $tpl->render(array("username"=>$username, "connectPath"=>$connectpath));
+function pageRender($tpl, $username, $connectpath, $portfolios) {
+    echo $tpl->render(array("username"=>$username, "connectPath"=>$connectpath, "portfolios"=>$portfolios));
 }
 ?>
