@@ -53,6 +53,7 @@ function cliqueModif(elementCliquer)
 /*===========================================================*/
 function cliqueAjout(elementCliquer)
 {
+    /* Ajout d'une compétence */
     if (elementCliquer.target.getAttribute('class').indexOf('btnAjouterCompetence') != -1)
     {
         var div1 = document.createElement('div');
@@ -69,14 +70,20 @@ function cliqueAjout(elementCliquer)
         div3.setAttribute('style', 'width: 100%;height: 100%;');
         div2.appendChild(div3);
 
+        var a = document.createElement('a');
+        a.setAttribute('id', 'competence');
+        a.setAttribute('href', './Listes_des_portfolios.html');
+        div3.appendChild(a);
+
         var p = document.createElement('p');
         p.setAttribute('style', 'text-align: center;margin-bottom: 0px;');
         p.innerHTML = 'Nouvelle compétence';
-        div3.appendChild(p);
+        a.appendChild(p);
 
         var lstCompetences = document.getElementById('lstCompetences');
         lstCompetences.appendChild(div1);
     }
+    /* Ajout d'un projet */
     else if (elementCliquer.target.getAttribute('class').indexOf('btnAjouterProjet') != -1)
     {
         var div1 = document.createElement('div');
@@ -92,10 +99,15 @@ function cliqueAjout(elementCliquer)
         div3.setAttribute('style', 'margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;');
         div2.appendChild(div3);
 
+        var a = document.createElement('a');
+        a.setAttribute('id', 'projet');
+        a.setAttribute('href', './Listes_des_portfolios.html');
+        div3.appendChild(a);
+
         var img = document.createElement('img');
         img.setAttribute('style', 'width: 100%;height: 100%;max-width: 400px;border-radius: 50px;');
         img.setAttribute('src', '../../assets/img/vide.png');
-        div3.appendChild(img);
+        a.appendChild(img);
 
         var lstProjets = document.getElementById('lstProjets');
         lstProjets.appendChild(div1);
