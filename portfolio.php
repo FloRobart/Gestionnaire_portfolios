@@ -20,11 +20,13 @@ $portfolio = $conn->getPortfolio($_GET["username"]);
 $projets = $conn->getProjets($portfolio->id);
 $competences = $conn->getCompetences($portfolio->id);
 
+$editorMode = isset($_COOKIE["connexionToken"]) && $conn->getUsernameFromToken($_COOKIE["connexionToken"]) == $_GET["username"];
 
-pageRender($tpl, $portfolio, $projets, $competences);
+
+pageRender($tpl, $portfolio, $projets, $competences, $editorMode);
 return;
 
 
-function pageRender($tpl, $portfolio, $projets, $competences) {
-    echo $tpl->render(array("portfolio"=>$portfolio, "projets"=>$projets, "competences"=>$competences, "editorMode"=>false));
+function pageRender($tpl, $portfolio, $projets, $competences, $editorMode=false) {
+    echo $tpl->render(array("portfolio"=>$portfolio, "projets"=>$projets, "competences"=>$competences, "editorMode"=>$editorMode));
 }
