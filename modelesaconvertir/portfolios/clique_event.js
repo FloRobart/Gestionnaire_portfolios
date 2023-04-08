@@ -1,20 +1,32 @@
 var ancienElement = null;
-window.addEventListener('load', initEvents, false);
+var bodyOrig = document.getElementsByTagName('body')[0].outerHTML;
 
+window.addEventListener('load', initEvents, false);
 function initEvents()
 {
     var elementsModifiable = document.getElementsByClassName('modifiable');
     var elementsAjouter = document.getElementsByClassName('btnAjouter');
+    var btnAnnuler = document.getElementsByClassName('btnAnnuler')[0];
+    var btnSave = document.getElementsByClassName('btnSave')[0];
 
+    /* Ajout des événements sur les éléments modifiables */
     for (var i = 0; i < elementsModifiable.length; i++)
         elementsModifiable[i].addEventListener('click', cliqueModif, false);
 
+    /* Ajout des événements sur les éléments ajoutables */
     for (var i = 0; i < elementsAjouter.length; i++)
         elementsAjouter[i].addEventListener('click', cliqueAjout, false);
+
+    /* Ajout de l'événement sur le bouton annuler */
+    btnAnnuler.addEventListener('click', cliqueAnnuler, false);
+    btnSave   .addEventListener('click', cliqueSave, false);
 }
 
 
+
+/*============================================*/
 /* Fonction qui permet de modifier un élément */
+/*============================================*/
 function cliqueModif(elementCliquer)
 {
     /* Définition de l'ancien élément */
@@ -35,24 +47,10 @@ function cliqueModif(elementCliquer)
     input.addEventListener('blur', valider, false);
 }
 
-/* Fonction qui permet de valider la modification d'un élément */
-function valider(elementValider)
-{
-    var input = elementValider.target;
 
-    /* Création du nouvel élément (même balise que l'élément avant d'être remplacer par l'input) */
-    var nouveauElement = document.createElement(ancienElement.nodeName);
-    nouveauElement.setAttribute('class', ancienElement.getAttribute('class'));
-    nouveauElement.setAttribute('id'   , ancienElement.getAttribute('id'));
-    nouveauElement.setAttribute('style', ancienElement.getAttribute('style'));
-    nouveauElement.innerHTML = input.value;
-
-    /* Remplacement de l'input par le nouvel élément */
-    input.parentNode.replaceChild(nouveauElement, input);
-    nouveauElement.addEventListener('click', cliqueModif, false);
-}
-
-
+/*===========================================================*/
+/* Permet d'ajouter un élément (un projet ou une compétence) */
+/*===========================================================*/
 function cliqueAjout(elementCliquer)
 {
     if (elementCliquer.target.getAttribute('class').indexOf('btnAjouterCompetence') != -1)
@@ -103,5 +101,60 @@ function cliqueAjout(elementCliquer)
 
         var lstProjets = document.getElementById('lstProjets');
         lstProjets.appendChild(div1);
+    }
+}
+
+
+/*====================================*/
+/* Permet d'annuler les modifications */
+/*====================================*/
+function cliqueAnnuler(elementCliquer)
+{
+    var body = document.getElementsByTagName('body')[0]
+    deleteChild(body);
+    body.innerHTML = bodyOrig;
+}
+
+
+/*=========================================*/
+/* Permet de sauvegarder les modifications */
+/*=========================================*/
+function cliqueSave(elementCliquer)
+{
+    bodyOrig = document.getElementsByTagName('body')[0].outerHTML;
+}
+
+
+
+/*================================================*/
+/* Permet de valider la modification d'un élément */
+/*================================================*/
+function valider(elementValider)
+{
+    var input = elementValider.target;
+
+    /* Création du nouvel élément (même balise que l'élément avant d'être remplacer par l'input) */
+    var nouveauElement = document.createElement(ancienElement.nodeName);
+    nouveauElement.setAttribute('class', ancienElement.getAttribute('class'));
+    nouveauElement.setAttribute('id'   , ancienElement.getAttribute('id'));
+    nouveauElement.setAttribute('style', ancienElement.getAttribute('style'));
+    nouveauElement.innerHTML = input.value;
+
+    /* Remplacement de l'input par le nouvel élément */
+    input.parentNode.replaceChild(nouveauElement, input);
+    nouveauElement.addEventListener('click', cliqueModif, false);
+}
+
+
+/*===================================================*/
+/* Permet de supprimer tous les enfants d'un élément */
+/*===================================================*/
+function deleteChild(parent)
+{
+    var child = parent.lastElementChild; 
+    while (child)
+    {
+        parent.removeChild(child);
+        child = parent.lastElementChild;
     }
 }

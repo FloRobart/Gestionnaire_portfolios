@@ -94,6 +94,12 @@
   background-color: black;
 }
 
+/* changement du cursor au survol des éléments modifiable */
+.modifiable:hover, .imageModifiable:hover
+{
+  cursor: pointer;
+}
+
 
 /* nav barre */
 .bs-icon {
