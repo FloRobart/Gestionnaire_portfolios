@@ -95,9 +95,15 @@
 }
 
 /* changement du cursor au survol des éléments modifiable */
-.modifiable:hover, .imgModifiable:hover
+.modifiable:hover
 {
   cursor: pointer;
+}
+
+#projet, #competence
+{
+  text-decoration: none;
+  color: black;
 }
 
 

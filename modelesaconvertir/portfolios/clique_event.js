@@ -5,7 +5,6 @@ window.addEventListener('load', initEvents, false);
 function initEvents()
 {
     var elementsModifiable = document.getElementsByClassName('modifiable');
-    var imagesModifiable = document.getElementsByClassName('imgModifiable');
     var elementsAjouter = document.getElementsByClassName('btnAjouter');
     var btnAnnuler = document.getElementsByClassName('btnAnnuler')[0];
     var btnSave = document.getElementsByClassName('btnSave')[0];
@@ -13,10 +12,6 @@ function initEvents()
     /* Ajout des événements sur les éléments modifiables */
     for (var i = 0; i < elementsModifiable.length; i++)
         elementsModifiable[i].addEventListener('click', cliqueModif, false);
-
-    /* Ajout des événements sur les images modifiables */
-    for (var i = 0; i < imagesModifiable.length; i++)
-        imagesModifiable[i].addEventListener('click', cliqueImgModif, false);
 
     /* Ajout des événements sur les éléments ajoutables */
     for (var i = 0; i < elementsAjouter.length; i++)
@@ -41,7 +36,7 @@ function cliqueModif(elementCliquer)
     var input = document.createElement('input');
     input.setAttribute('class', ancienElement.getAttribute('class'));
     input.setAttribute('id'   , ancienElement.getAttribute('id'));
-    input.setAttribute('style', ancienElement.getAttribute('style') + 'width: 100%;height: 100%;');
+    input.setAttribute('style', ancienElement.getAttribute('style'));
     input.setAttribute('value', ancienElement.innerHTML);
     if (ancienElement.getAttribute('id') == 'userName')
         input.setAttribute('onkeyup', 'this.value = this.value.toUpperCase();');
@@ -50,24 +45,6 @@ function cliqueModif(elementCliquer)
     ancienElement.parentNode.replaceChild(input, ancienElement);
     input.focus();
     input.addEventListener('blur', valider, false);
-}
-
-
-/*===========================================*/
-/* Fonction qui permet de modifier une image */
-/*===========================================*/
-function cliqueImgModif(elementCliquer)
-{
-
-    var input = document.createElement('input');
-    input.type = 'file';
-
-    var file = null;
-    input.onchange = e => { file = e.target.files[0]; }
-
-
-    input.click();
-    console.log(file);
 }
 
 
@@ -88,15 +65,13 @@ function cliqueAjout(elementCliquer)
         div1.appendChild(div2);
 
         var div3 = document.createElement('div');
-        div3.setAttribute('class', 'border rounded-pill border-dark');
+        div3.setAttribute('class', 'border rounded-pill border-dark px-2');
         div3.setAttribute('style', 'width: 100%;height: 100%;');
         div2.appendChild(div3);
 
         var p = document.createElement('p');
-        p.setAttribute('class', 'modifiable');
         p.setAttribute('style', 'text-align: center;margin-bottom: 0px;');
         p.innerHTML = 'Nouvelle compétence';
-        p.addEventListener('click', cliqueModif, false);
         div3.appendChild(p);
 
         var lstCompetences = document.getElementById('lstCompetences');
