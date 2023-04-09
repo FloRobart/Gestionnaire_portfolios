@@ -51,7 +51,9 @@
     <div class="container text-muted" style="text-align: center;"><a class="link-secondary" href="#">Mentions légales</a>
         <p>Copyright © 2023 FolioEdit</p>
     </div>
+    {% if editorMode == true %}
     <script type="text/javascript" src="./scripts/clique_event.js"></script>
+    {% endif %}
 </body>
 
 </html>
