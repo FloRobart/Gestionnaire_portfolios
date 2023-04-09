@@ -71,6 +71,8 @@ function cliqueAjout(elementCliquer)
     /* Ajout d'une compétence */
     if (elementCliquer.target.getAttribute('class').indexOf('btnAjouterCompetence') != -1)
     {
+        var id = newComp();
+        
         var div1 = document.createElement('div');
         div1.setAttribute('class', 'col-xxl-4');
         div1.setAttribute('id', 'competence');
@@ -87,7 +89,7 @@ function cliqueAjout(elementCliquer)
 
         var a = document.createElement('a');
         a.setAttribute('id', 'competence');
-        a.setAttribute('href', './Competence.html');
+        a.setAttribute('href', `./competence.php?id=${id}`);
         div3.appendChild(a);
 
         var p = document.createElement('p');
@@ -120,7 +122,7 @@ function cliqueAjout(elementCliquer)
 
         var a = document.createElement('a');
         a.setAttribute('id', 'projet');
-        a.setAttribute('href', './projet.php?id=${id}');
+        a.setAttribute('href', `./projet.php?id=${id}`);
         div3.appendChild(a);
 
         var img = document.createElement('img');
@@ -172,7 +174,27 @@ function saveFolio() {
 }
 
 function saveCompetence() {
+    //Récupération des infos du portfolio
+    var nom, descr, id;
 
+    nom = document.getElementById("nom").innerHTML;
+    descr = document.getElementById("description").innerHTML;
+    id = document.getElementById("compId").innerHTML;
+    
+
+    console.log(id);
+
+
+    //Sauvegarde dans la BD
+    fetch("editor/updateCompetence.php", {
+        credentials: "include",
+        method: "post",
+        headers: {
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+        },
+        body: `newName=${nom}&newDesc=${descr}&id=${id}`
+
+    }).then(function (response) {console.log(response.text());})
 }
 
 function saveProjet() {
@@ -206,6 +228,10 @@ function saveProjet() {
 
 function newProjet() {
     return fetch("editor/newProjet.php", {credentials: "include"}).then(function (response) {return response.text();});
+}
+
+function newComp() {
+    return fetch("editor/newCompetence.php", {credentials: "include"}).then(function (response) {return response.text();});
 }
 
 /*===========================*/
