@@ -59,7 +59,7 @@
 
 
 /* Bouton consulter dans la liste des portfolios */
-#btnConsulter
+.btnConsulter
 {
   margin-top: 21px;
   padding-left: 10px;
@@ -73,14 +73,14 @@
   color : black;
 }
 
-#btnConsulter:hover
+.btnConsulter:hover
 {
   color : white;
   background-color: black;
 }
 
 /* Bouton retour dans la liste */
-#btnSimple
+.btnSimple
 {
   border: 3px solid black;
   border-radius: 10px;
@@ -88,7 +88,7 @@
   color : black;
 }
 
-#btnSimple:hover
+.btnSimple:hover
 {
   color : white;
   background-color: black;
@@ -100,7 +100,7 @@
   cursor: pointer;
 }
 
-#projet, #competence
+.projet, .competence
 {
   text-decoration: none;
   color: black;

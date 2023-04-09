@@ -12,9 +12,9 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md py-3">
-        <div class="container"><a class="btn btnAnnuler" role="button" id="btnSimple" href="#">Annuler et revenir à l'accueil</a>
+        <div class="container"><a class="btn btnAnnuler btnSimple" role="button" href="#">Annuler et revenir à l'accueil</a>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ms-auto"></ul><a class="btn btnSave" role="button" id="btnSimple" href="#">Sauvegarder</a><!-- Metttre la fonction pour tous enregistrer dans la bado ici -->
+                <ul class="navbar-nav ms-auto"></ul><a class="btn btnSave btnSimple" role="button" href="#">Sauvegarder</a><!-- Metttre la fonction pour tous enregistrer dans la bado ici -->
             </div>
         </div>
     </nav>
@@ -23,9 +23,9 @@
             <div class="container"><span class="modifiable" id="userName" style="border: solid 2px black;border-radius: 10px;padding: 2px;">FABRICE BOBART</span>
                 <div class="collapse navbar-collapse" id="navcol-2">
                     <ul class="navbar-nav ms-auto">
-                        <li id="btnSimple" class="nav-item">     <a href="#Projets">Projets</a></li>
-                        <li id="btnSimple" class="nav-item mx-3"><a href="#Competences">Compétences</a></li>
-                        <li id="btnSimple" class="nav-item">     <a href="./Contact.html">Contact</a></li>
+                        <li class="nav-item btnSimple">     <a href="#Projets">Projets</a></li>
+                        <li class="nav-item mx-3 btnSimple"><a href="#Competences">Compétences</a></li>
+                        <li class="nav-item btnSimple">     <a href="./Contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                         <p class="modifiable">Bonjour ! Je m’appelle Fabrice Bobart, je suis un développeur basé à Saumur et voici mon portfolio !</p>
                     </div>
                 </div>
-                <div class="col-md-6"><img class="rounded border rounded-circle" style="max-width: 350px;max-height: 350px;margin-left: 50%;transform: translateX(-50%);" src="../../assets/img/moi.png"></div>
+                <div class="col-md-6"><img class="rounded border rounded-circle imgModifiable" style="max-width: 350px;max-height: 350px;margin-left: 50%;transform: translateX(-50%);" src="../../assets/img/moi.png"></div>
             </div>
         </div>
         <hr style="border-width: 3px;">
@@ -45,27 +45,27 @@
             <div class="row gy-4 row-cols-md-2 row-cols-xl-3" id="lstProjets">
                 <div class="col-xxl-4" id="projet">
                     <div class="card border-white" style="position: relative;">
-                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a id="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/test.png"></a></div>
+                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a class="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/test.png"></a></div>
                     </div>
                 </div>
                 <div class="col" id="projet">
                     <div class="card border-white" style="position: relative;">
-                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a id="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/cercle.png"></a></div>
+                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a class="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/cercle.png"></a></div>
                     </div>
                 </div>
                 <div class="col-xxl-4" id="projet">
                     <div class="card border-white" style="position: relative;">
-                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a id="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/test.png"></a></div>
+                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a class="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/test.png"></a></div>
                     </div>
                 </div>
                 <div class="col-xxl-4" id="projet">
                     <div class="card border-white" style="position: relative;">
-                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a id="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/test.png"></a></div>
+                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a class="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/test.png"></a></div>
                     </div>
                 </div>
             </div>
             <div class="row mt-4" id="btnAjouterProjet">
-                <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn btnAjouter btnAjouterProjet" id="btnSimple" type="button" style="width: 100%;"> + Ajouter un projet</button></div>
+                <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn btnAjouter btnAjouterProjet btnSimple" type="button" style="width: 100%;"> + Ajouter un projet</button></div>
             </div>
         </div>
         <hr style="border-width: 3px;">
@@ -74,34 +74,34 @@
                 <div class="col-xxl-4" id="competence">
                     <div class="card border-white" style="position: relative;">
                         <div class="border rounded-pill border-dark px-2" style="width: 100%;height: 100%;">
-                            <a id="competence" href="./Competence.html"><p style="text-align: center;margin-bottom: 0px;">Me prendre des giga zeubs dans le cul</p></a>
+                            <a class="competence" href="./Competence.html"><p style="text-align: center;margin-bottom: 0px;">Me prendre des giga zeubs dans le cul</p></a>
                         </div>
                     </div>
                 </div>
                 <div class="col" id="competence">
                     <div class="card border-white" style="position: relative;">
                         <div class="border rounded-pill border-dark px-2" style="width: 100%;height: 100%;">
-                            <a id="competence" href="./Competence.html"><p style="text-align: center;margin-bottom: 0px;">j'en peut plus</p></a>
+                            <a class="competence" href="./Competence.html"><p style="text-align: center;margin-bottom: 0px;">j'en peut plus</p></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xxl-4" id="competence">
                     <div class="card border-white" style="position: relative;">
                         <div class="border rounded-pill border-dark px-2" style="width: 100%;height: 100%;">
-                            <a id="competence" href="./Competence.html"><p style="text-align: center;margin-bottom: 0px;">je veux crever</p></a>
+                            <a class="competence" href="./Competence.html"><p style="text-align: center;margin-bottom: 0px;">je veux crever</p></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xxl-4" id="competence">
                     <div class="card border-white" style="position: relative;">
                         <div class="border rounded-pill border-dark px-2" style="width: 100%;height: 100%;">
-                            <a id="competence" href="./C"><p style="text-align: center;margin-bottom: 0px;">LE WEB C'EST DE LA GROSSE MERDE LA PUTAIN DE TA RACE.</p></a>
+                            <a class="competence" href="./C"><p style="text-align: center;margin-bottom: 0px;">LE WEB C'EST DE LA GROSSE MERDE LA PUTAIN DE TA RACE.</p></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row mt-4" id="btnAjouterCompetence">
-                <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn btnAjouter btnAjouterCompetence" id="btnSimple" type="button" style="width: 100%;"> + Ajouter une compétences</button></div>
+                <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn btnAjouter btnAjouterCompetence btnSimple" type="button" style="width: 100%;"> + Ajouter une compétences</button></div>
             </div>
         </div>
         <hr style="border-width: 3px;">
