@@ -11,6 +11,16 @@
 </head>
 
 <body>
+    <p hidden id="compId">{{competence.id}}</p>
+    {% if editorMode == true %}
+        <nav class="navbar navbar-light navbar-expand-md py-3">
+            <div class="container"><a class="btn btnAnnuler" role="button" id="btnSimple" href="#">Annuler et revenir à l'accueil</a>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav ms-auto"></ul><a class="btn btnSave" role="button" id="btnSaveFolio" href="#">Sauvegarder</a><!-- Metttre la fonction pour tous enregistrer dans la bado ici -->
+                </div>
+            </div>
+        </nav>
+        {% endif %}
     <nav class="navbar navbar-light navbar-expand-md mb-3">
         <div class="container"><span class="modifiable" id="userName" style="border: solid 2px black;border-radius: 10px;padding: 2px;">{{portfolio.nom}}</span>
             <div class="collapse navbar-collapse" id="navcol-2">

@@ -19,7 +19,22 @@ function initEvents()
 
     /* Ajout de l'événement sur le bouton annuler */
     btnAnnuler.addEventListener('click', cliqueAnnuler, false);
-    btnSave   .addEventListener('click', saveFolio, false);
+    
+    
+    if (window.location.pathname.includes("portfolio.php")) {
+        btnSave   .addEventListener('click', saveFolio, false);
+    }
+
+    if (window.location.pathname.includes("competence.php")) {
+        btnSave   .addEventListener('click', saveCompetence, false);
+    }
+
+    if (window.location.pathname.includes("projet.php")) {
+        btnSave   .addEventListener('click', saveProjet, false);
+    }
+
+
+    
 }
 
 
@@ -154,6 +169,35 @@ function saveFolio() {
         body: `newName=${nom}&newDesc=${descr}&newEmail=${email}&newPhone=${phone}`
 
     });
+}
+
+function saveCompetence() {
+
+}
+
+function saveProjet() {
+
+    //Récupération des infos du portfolio
+    var nom, descr, id;
+
+    nom = document.getElementById("projName").innerHTML;
+    descr = document.getElementById("description").innerHTML;
+    id = document.getElementById("projId").innerHTML;
+    
+
+    console.log(id);
+
+
+    //Sauvegarde dans la BD
+    fetch("editor/updateProjet.php", {
+        credentials: "include",
+        method: "post",
+        headers: {
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+        },
+        body: `newName=${nom}&newDesc=${descr}&id=${id}`
+
+    }).then(function (response) {console.log(response.text());})
 }
 
 /*=======================*/

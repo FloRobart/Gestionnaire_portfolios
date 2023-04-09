@@ -57,7 +57,7 @@
                 {% for projet in projets %}
                 <div class="col-xxl-4" id="projet">
                     <div class="card border-white" style="position: relative;">
-                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a id="projet" href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px; max-height: 250px;border-radius: 50px; object-fit: cover;" src="userdata/{{portfolio.username}}/{{projet.img}}"></a></div>
+                        <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a id="projet" href="./projet.php?id={{projet.id}}"><img style="width: 100%;height: 100%;max-width: 400px; max-height: 250px;border-radius: 50px; object-fit: cover;" src="userdata/{{portfolio.username}}/{{projet.img}}"></a></div>
                     </div>
                 </div>
                 {% endfor %}
@@ -82,7 +82,7 @@
                 <div class="col-xxl-4" id="competence">
                     <div class="card border-white" style="position: relative;">
                         <div class="border rounded-pill border-dark" style="width: 100%; padding-top: 20px; padding-bottom: 20px;">
-                            <a id="competence" href="./Competence.html"><p style="text-align: center;margin-bottom: 0px;">{{comp.nom}}</p></a>
+                            <a id="competence" href="./competence.php?id={{competence.id}}"><p style="text-align: center;margin-bottom: 0px;">{{comp.nom}}</p></a>
                         </div>
                     </div>
                 </div>

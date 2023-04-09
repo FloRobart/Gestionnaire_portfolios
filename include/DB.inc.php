@@ -157,8 +157,28 @@ class DB {
 		return $result;
 	}
 
+	public function getProjet($id) {
+		$result = $this->execQuery("SELECT * FROM Projet WHERE id = ?", array($id), "Projet");
+
+		if (empty($result)) return null;
+		
+		return $result[0];
+	}
+
+	public function getCompetence($id) {
+		$result = $this->execQuery("SELECT * FROM Competence WHERE id = ?", array($id), "Competence");
+
+		if (empty($result)) return null;
+		
+		return $result[0];
+	}
+
 	public function updateFolio($user, $name, $desc, $email, $phone) {
 		$this->execQuery("UPDATE Portfolio SET nom = ?, descr = ?, email = ?, phone = ? WHERE username = ?", array($name, $desc, $email, $phone, $user), "Portfolio");
+	}
+
+	public function updateProj($id, $name, $desc) {
+		$this->execQuery("UPDATE Projet SET nom = ?, descr = ? WHERE id = ?", array($name, $desc, $id), "Projet");
 	}
 
 	public function newProjet($portfolio) {

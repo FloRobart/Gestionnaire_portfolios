@@ -36,3 +36,4 @@ return;
 function pageRender($tpl, $portfolio, $projets, $competences, $editorMode=false) {
     echo $tpl->render(array("portfolio"=>$portfolio, "projets"=>$projets, "competences"=>$competences, "editorMode"=>$editorMode));
 }
+?>
