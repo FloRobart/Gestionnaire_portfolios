@@ -36,31 +36,20 @@
         <div class="row gy-4 gy-md-0">
             <div class="col">
                 <div style="max-width: 100%;">
-                    <h2 class="text-uppercase fw-bold modifiable">{{competence.nom}}</h2>
-                    <p class="my-3 modifiable">{{competence.descr}}</p>
+                    <h2 class="text-uppercase fw-bold modifiable" id="nom">{{competence.nom}}</h2>
+                    <p class="my-3 modifiable" id="description">{{competence.descr}}</p>
                 </div>
             </div>
         </div>
     </div>
-    {% if projets %}
-    <hr style="height: 3px;background: #000;"><span class="h3 mx-2">Projets liés</span>
-    <div class="row gy-4 row-cols-md-2 row-cols-xl-3" id="lstProjets" style="margin-top: 0px;margin-right: 0px;margin-left: 0px;">
-        <div class="col-xxl-4" id="projet-1">
-            <div class="card border-white" style="position: relative;">
-                <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a href="./Projet.html"><span style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;">nom de la compétence ???</span></a></div>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-4" id="btnAjouterProjet">
-        <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn btnAjouter btnAjouterProjet" id="btnSimple" type="button" style="width: 100%;">Ajouter un projet</button></div>
-    </div>
-    {% endif %}
-
+    
     <hr style="height: 3px;background: #000;">
     <div class="container text-muted" style="text-align: center;"><a class="link-secondary" href="#">Mentions légales</a>
         <p>Copyright © 2023 FolioEdit</p>
     </div>
-    <script src="./clique_event.js"></script>
+    {% if editorMode == true %}
+    <script src="./scripts/clique_event.js"></script>
+    {% endif %}
 </body>
 
 </html>
