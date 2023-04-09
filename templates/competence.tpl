@@ -47,7 +47,7 @@
     <div class="row gy-4 row-cols-md-2 row-cols-xl-3" id="lstProjets" style="margin-top: 0px;margin-right: 0px;margin-left: 0px;">
         <div class="col-xxl-4" id="projet-1">
             <div class="card border-white" style="position: relative;">
-                <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a href="./Projet.html"><img style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;" src="../../assets/img/test.png"></a></div>
+                <div style="margin-left: 50%;transform: translate(-50%);width: 100%;height: 100%;max-width: 400px;"><a href="./Projet.html"><span style="width: 100%;height: 100%;max-width: 400px;border-radius: 50px;">nom de la compétence ???</span></a></div>
             </div>
         </div>
     </div>
