@@ -12,12 +12,12 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md mb-3">
-        <div class="container"><span style="border: solid 2px black;border-radius: 10px;padding: 2px;">FABRICE BOBART</span>
+        <div class="container"><span class="modifiable" id="userName" style="border: solid 2px black;border-radius: 10px;padding: 2px;">FABRICE BOBART</span>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item" style="border: solid 2px black;border-radius: 10px;padding: 2px;"><a class="nav-link active" href="#">Projets</a></li>
-                    <li class="nav-item mx-3" style="border: solid 2px black;border-radius: 10px;padding: 2px;"><a class="nav-link active" href="#">Compétences</a></li>
-                    <li class="nav-item" style="border: solid 2px black;border-radius: 10px;padding: 2px;"><a class="nav-link active" href="#">Contact</a></li>
+                    <li id="btnSimple" class="nav-item">     <a href="#Projets">Projets</a></li>
+                    <li id="btnSimple" class="nav-item mx-3"><a href="#Competences">Compétences</a></li>
+                    <li id="btnSimple" class="nav-item">     <a href="./Contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -26,8 +26,8 @@
         <div class="row gy-4 gy-md-0">
             <div class="col">
                 <div style="max-width: 100%;">
-                    <h2 class="text-uppercase fw-bold">Zone de dessin partagé</h2>
-                    <p class="my-3">Logiciel permettant de dessiner avec plusieurs personnes simultanément Logiciel réalisé avec Java et l’API Swing.</p>
+                    <h2 class="text-uppercase fw-bold modifiable">Zone de dessin partagé</h2>
+                    <p class="my-3 modifiable">Logiciel permettant de dessiner avec plusieurs personnes simultanément Logiciel réalisé avec Java et l’API Swing.</p>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
         </div>
     </div>
     <div class="row mt-4" id="btnAjouterProjet">
-        <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn" id="btnSimple" type="button" style="width: 100%;">Ajouter un projet</button></div>
+        <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn btnAjouter btnAjouterProjet" id="btnSimple" type="button" style="width: 100%;">Ajouter un projet</button></div>
     </div>
     <hr style="height: 3px;background: #000;">
     <div class="container text-muted" style="text-align: center;"><a class="link-secondary" href="#">Mentions légales</a>

@@ -72,7 +72,7 @@ function cliqueAjout(elementCliquer)
 
         var a = document.createElement('a');
         a.setAttribute('id', 'competence');
-        a.setAttribute('href', './Listes_des_portfolios.html');
+        a.setAttribute('href', './Competence.html');
         div3.appendChild(a);
 
         var p = document.createElement('p');
@@ -101,7 +101,7 @@ function cliqueAjout(elementCliquer)
 
         var a = document.createElement('a');
         a.setAttribute('id', 'projet');
-        a.setAttribute('href', './Listes_des_portfolios.html');
+        a.setAttribute('href', './Projet.html');
         div3.appendChild(a);
 
         var img = document.createElement('img');
