@@ -75,6 +75,12 @@ class DB {
 		$this->execQuery("INSERT INTO Users VALUES (?,?)", array($username, $hash), "User");
 	}
 
+	public function createPortfolio($username) {
+		$this->execQuery("INSERT INTO Portfolio (username, nom, descr, email, phone, img) VALUES (?,?,?,?,?,?)", array($username, "MOI", "Clique sur les éléments pour les modifier !", "tonemail@folioedit.com", "00 00 00 00 00", "temp.png"), "Portfolio");
+	
+		return $this->getPortfolio($username);
+	}
+
 	public function checkAccount($username, $password) {
 		$account = $this->execQuery("SELECT * FROM Users WHERE nom = ?", array($username), "User");	
 		
@@ -84,7 +90,7 @@ class DB {
 	}
 
 	private function removeOutdatedTokens() {
-		$this->execQuery("DELETE FROM Tokens WHERE expiration_date < ?", array(date("Y-m-d H:i:s" , time())), "");	
+		$this->execQuery("DELETE FROM Tokens WHERE expiration_date < ?", array(date("Y-m-d H:i:s" , time())), "Token");	
 	}
 
 	public function createToken($username, $token) {
@@ -92,7 +98,7 @@ class DB {
 		
 		$expiration = time() + 86400; //24 hours duration
 
-		$this->execQuery("INSERT INTO Tokens VALUES (?,?,?)", array($token, $username, date("Y-m-d H:i:s" , $expiration)), "");	
+		$this->execQuery("INSERT INTO Tokens VALUES (?,?,?)", array($token, $username, date("Y-m-d H:i:s" , $expiration)), "Token");	
 	}
 
 	public function getUsernameFromToken($tokenid) {
@@ -156,7 +162,7 @@ class DB {
 	}
 
 	public function newProjet($portfolio) {
-		$this->execQuery("INSERT INTO Projet (nom, descr, folio) VALUES (?,?,?)", array("Nouveau Projet", "Description du projet", $portfolio), "Projet");
+		$this->execQuery("INSERT INTO Projet (nom, descr, folio, img) VALUES (?,?,?,?)", array("Nouveau Projet", "Description du projet", $portfolio, "temp.png"), "Projet");
 	}
 
 	public function newCompetence($portfolio) {

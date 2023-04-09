@@ -49,10 +49,11 @@
                 <div class="col-md-6"><img class="rounded border rounded-circle" style="max-width: 350px;max-height: 350px;margin-left: 50%;transform: translateX(-50%);" src="userdata/{{portfolio.username}}/{{portfolio.img}}"></div>
             </div>
         </div>
-        {% if projets %}
+        
         <hr style="border-width: 3px;">
         <div id="Projets">
             <div class="row gy-4 row-cols-md-2 row-cols-xl-3" id="lstProjets">
+                {% if projets %}
                 {% for projet in projets %}
                 <div class="col-xxl-4" id="projet">
                     <div class="card border-white" style="position: relative;">
@@ -60,20 +61,23 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% endif %}
             </div>
             {% if editorMode == true %}
             <div class="row mt-4" id="btnAjouterProjet">
                 <div class="col-md-8 col-xl-6 text-center mx-auto"><button class="btn btnAjouter btnAjouterProjet" id="btnSimple" type="button" style="width: 100%;"> + Ajouter un projet</button></div>
             </div>
             {% endif %}
+        
         </div>
-        {% endif %}
+        
 
-        {% if competences %}
+        
         <hr style="border-width: 3px;">
         <div id="Competences">
             
             <div class="row gy-4 row-cols-md-2 row-cols-xl-3" id="lstCompetences">
+                {% if competences %}
                 {% for comp in competences %}
                 <div class="col-xxl-4" id="competence">
                     <div class="card border-white" style="position: relative;">
@@ -83,6 +87,7 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% endif %}
             </div>
             {% if editorMode == true %}
             <div class="row mt-4" id="btnAjouterCompetence">
@@ -90,7 +95,7 @@
             </div>
             {% endif %}
         </div>
-        {% endif %}
+        
         <hr style="border-width: 3px;">
         <div class="container text-muted" style="text-align: center;">
             <p>{{portfolio.nom}}</p>

@@ -1,6 +1,6 @@
 <?php 
 ini_set('display_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL ^ E_DEPRECATED);
 
 
 require_once("include/DB.inc.php");
@@ -20,7 +20,8 @@ $conn = DB::getInstance();
 
 $portfolios = $conn->getLatestPortfolios();
 
-for ($cpt = 0; $cpt < sizeof($portfolios); $cpt++) {
+
+for ($cpt = 0; $portfolios != null && $cpt < sizeof($portfolios); $cpt++) {
     $portfolios[$cpt]->descr = substr($portfolios[$cpt]->descr, 0, 40) . "...";
 }
 

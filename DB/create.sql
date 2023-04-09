@@ -31,7 +31,7 @@ CREATE TABLE Projet (
 CREATE TABLE Competence (
     id SERIAL PRIMARY KEY,
     nom TEXT NOT NULL,
-    descr TEXT
+    descr TEXT,
     folio INT REFERENCES Portfolio(id)
 );
 
