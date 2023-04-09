@@ -8,7 +8,7 @@ function initEvents()
     var imagesModifiable = document.getElementsByClassName('imgModifiable');
     var elementsAjouter = document.getElementsByClassName('btnAjouter');
     var btnAnnuler = document.getElementsByClassName('btnAnnuler')[0];
-    var btnSave = document.getElementsByClassName('btnSave')[0];
+    var btnSave = document.getElementsByClassName('btnSave');
 
     /* Ajout des événements sur les éléments modifiables */
     for (var i = 0; i < elementsModifiable.length; i++)
@@ -21,6 +21,10 @@ function initEvents()
     /* Ajout des événements sur les éléments ajoutables */
     for (var i = 0; i < elementsAjouter.length; i++)
         elementsAjouter[i].addEventListener('click', cliqueAjout, false);
+
+    /* Ajout de l'événement sur les boutons sauvegarder */
+    for (var i = 0; i < btnSave.length; i++)
+        btnSave[i].addEventListener('click', cliqueSave, false);
 
     /* Ajout de l'événement sur le bouton annuler */
     btnAnnuler.addEventListener('click', cliqueAnnuler, false);
