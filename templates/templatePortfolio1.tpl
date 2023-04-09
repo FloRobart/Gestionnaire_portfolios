@@ -82,7 +82,7 @@
                 <div class="col-xxl-4" id="competence">
                     <div class="card border-white" style="position: relative;">
                         <div class="border rounded-pill border-dark" style="width: 100%; padding-top: 20px; padding-bottom: 20px;">
-                            <a id="competence" href="./competence.php?id={{competence.id}}"><p style="text-align: center;margin-bottom: 0px;">{{comp.nom}}</p></a>
+                            <a id="competence" href="./competence.php?id={{comp.id}}"><p style="text-align: center;margin-bottom: 0px;">{{comp.nom}}</p></a>
                         </div>
                     </div>
                 </div>
