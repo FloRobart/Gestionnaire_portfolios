@@ -15,20 +15,22 @@ $tpl = $twig->loadTemplate( "accueil.tpl" );
 $username = "Connexion";
 $connectpath = "href=connexion.php";
 
-if (!isset($_COOKIE["connexionToken"])) {
-    pageRender($tpl, $username, $connectpath);
-    return;
-}
-
 $conn = DB::getInstance();
 
-$username = $conn->getUsernameFromToken($_COOKIE["connexionToken"]);
-$connectpath = "";
+
 $portfolios = $conn->getLatestPortfolios();
 
 for ($cpt = 0; $cpt < sizeof($portfolios); $cpt++) {
     $portfolios[$cpt]->descr = substr($portfolios[$cpt]->descr, 0, 40) . "...";
 }
+
+if (!isset($_COOKIE["connexionToken"])) {
+    pageRender($tpl, $username, $connectpath, $portfolios);
+    return;
+}
+
+$username = $conn->getUsernameFromToken($_COOKIE["connexionToken"]);
+$connectpath = "";
 
 
 

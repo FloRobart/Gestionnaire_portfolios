@@ -78,7 +78,7 @@
                 <p class="mb-0">Copyright © 2023 FolioEdit</p>
                 <ul class="list-inline">
                     <li class="list-inline-item me-4"></li>
-                    <li class="list-inline-item me-4"><a class="link-secondary" href="#">Mentions légales</a></li>
+                    <li class="list-inline-item me-4"><a class="link-secondary" href="Mentions_legales.html">Mentions légales</a></li>
                     <li class="list-inline-item"></li>
                 </ul>
             </div>
