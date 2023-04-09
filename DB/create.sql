@@ -24,24 +24,20 @@ CREATE TABLE Projet (
     id SERIAL PRIMARY KEY,
     nom TEXT NOT NULL,
     descr TEXT,
-    img TEXT
+    img TEXT,
+    folio INT REFERENCES Portfolio(id)
 );
 
 CREATE TABLE Competence (
     id SERIAL PRIMARY KEY,
     nom TEXT NOT NULL,
     descr TEXT
+    folio INT REFERENCES Portfolio(id)
 );
 
-CREATE TABLE ProjetsPortfolio (
-    idFolio INT REFERENCES Portfolio(id),
-    idProjet INT REFERENCES Projet(id),
-    PRIMARY KEY(idFolio, idProjet)
-);
-
-CREATE TABLE CompetencesPortfolio (
-    idFolio INT REFERENCES Portfolio(id),
-    idComp INT REFERENCES Competence(id),
-    PRIMARY KEY(idFolio, idComp)
+CREATE TABLE CompetencesProjets (
+    idComp INT REFERENCES Portfolio(id),
+    idProj INT REFERENCES Competence(id),
+    PRIMARY KEY(idComp, idProj)
 );
 

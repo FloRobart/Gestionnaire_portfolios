@@ -111,6 +111,14 @@ class DB {
 		return $result[0];
 	}
 
+	public function getPortfolioWithId($id) {
+		$result = $this->execQuery("SELECT * FROM Portfolio WHERE id = ?", array($id), "Portfolio");
+
+		if (empty($result)) return null;
+		
+		return $result[0];
+	}
+
 	public function getLatestPortfolios() {
 		$result = $this->execQuery("SELECT * FROM Portfolio ORDER BY id DESC LIMIT 6", array(), "Portfolio");
 
@@ -119,8 +127,16 @@ class DB {
 		return $result;
 	}
 
+	public function getLatestProjet() {
+		$result = $this->execQuery("SELECT * FROM Projet ORDER BY id DESC LIMIT 1", array(), "Projet");
+
+		if (empty($result)) return null;
+		
+		return $result;
+	}
+
 	public function getProjets($idFolio) {
-		$result = $this->execQuery("SELECT DISTINCT p.* FROM Projet p NATURAL JOIN ProjetsPortfolio pp WHERE pp.idFolio = ?", array($idFolio), "Projet");
+		$result = $this->execQuery("SELECT DISTINCT p.* FROM Projet p  WHERE p.folio = ?", array($idFolio), "Projet");
 
 		if (empty($result)) return null;
 		
@@ -128,11 +144,23 @@ class DB {
 	}
 
 	public function getCompetences($idFolio) {
-		$result = $this->execQuery("SELECT DISTINCT c.* FROM Competence c NATURAL JOIN CompetencesPortfolio p WHERE p.idFolio = ?", array($idFolio), "Competence");
+		$result = $this->execQuery("SELECT DISTINCT c.* FROM Competence c WHERE c.folio = ?", array($idFolio), "Competence");
 
 		if (empty($result)) return null;
 		
 		return $result;
+	}
+
+	public function updateFolio($user, $name, $desc, $email, $phone) {
+		$this->execQuery("UPDATE Portfolio SET nom = ?, descr = ?, email = ?, phone = ? WHERE username = ?", array($name, $desc, $email, $phone, $user), "Portfolio");
+	}
+
+	public function newProjet($portfolio) {
+		$this->execQuery("INSERT INTO Projet (nom, descr, folio) VALUES (?,?,?)", array("Nouveau Projet", "Description du projet", $portfolio), "Projet");
+	}
+
+	public function newCompetence($portfolio) {
+		$this->execQuery("INSERT INTO Competence (nom, descr, folio) VALUES (?,?,?)", array("Nouveau Compétence", "Description de la compétence", $portfolio), "Projet");
 	}
 
 	
