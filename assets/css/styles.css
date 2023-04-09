@@ -177,3 +177,58 @@ li>a:hover
   border-radius: 50%;
 }
 
+
+input[type=text].inputTextFormMessage {
+  width: 100%; 
+  padding: 12px; 
+  border: 1px round #ccc; 
+  border-radius: 4px;
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical 
+}
+
+
+textarea[type=text].inputMessageFromMessage {
+  width: 100%; 
+  padding: 12px; 
+  border: 1px round #ccc; 
+  border-radius: 4px;
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical;
+  height:200px;
+}
+
+label.labelFormMessage {
+  color: white;
+}
+
+
+input[type=mail].inputMailFormMessage{
+  width: 100%; 
+  padding: 12px; 
+  border: 1px round #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical 
+}
+
+
+input[type=submit].inputSubmitFormMessage {
+  background-color: #000000;
+  color: rgb(247, 247, 247);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+input[type=submit].inputSubmitFormMessage:hover {
+  background-color: #130b0b;
+}
