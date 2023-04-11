@@ -141,6 +141,14 @@ class DB {
 		return $result;
 	}
 
+	public function getLatestCompetence() {
+		$result = $this->execQuery("SELECT * FROM Competence ORDER BY id DESC LIMIT 1", array(), "Competence");
+
+		if (empty($result)) return null;
+		
+		return $result;
+	}
+
 	public function getProjets($idFolio) {
 		$result = $this->execQuery("SELECT DISTINCT p.* FROM Projet p  WHERE p.folio = ?", array($idFolio), "Projet");
 
@@ -181,12 +189,17 @@ class DB {
 		$this->execQuery("UPDATE Projet SET nom = ?, descr = ? WHERE id = ?", array($name, $desc, $id), "Projet");
 	}
 
+	public function updateComp($id, $name, $desc) {
+		$this->execQuery("UPDATE Competence SET nom = ?, descr = ? WHERE id = ?", array($name, $desc, $id), "Competence");
+	}
+
+
 	public function newProjet($portfolio) {
 		$this->execQuery("INSERT INTO Projet (nom, descr, folio, img) VALUES (?,?,?,?)", array("Nouveau Projet", "Description du projet", $portfolio, "temp.png"), "Projet");
 	}
 
 	public function newCompetence($portfolio) {
-		$this->execQuery("INSERT INTO Competence (nom, descr, folio) VALUES (?,?,?)", array("Nouveau Compétence", "Description de la compétence", $portfolio), "Projet");
+		$this->execQuery("INSERT INTO Competence (nom, descr, folio) VALUES (?,?,?)", array("Nouvelle Compétence", "Description de la compétence", $portfolio), "Projet");
 	}
 
 	
